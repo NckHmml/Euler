@@ -16,25 +16,15 @@ namespace Euler.Problems
 
         public static string Run()
         {
-            string sudoku;
+            string sudokus;
             using (FileStream file = File.OpenRead("p096.txt"))
             {
                 byte[] charbuffer = new byte[file.Length];
                 file.Read(charbuffer, 0, (int)file.Length);
-                sudoku = Encoding.ASCII.GetString(charbuffer);
+                sudokus = Encoding.ASCII.GetString(charbuffer);
             }
 
-            //int answer = SolveSudoku(sudoku
-            //    .Replace("\r", "")
-            //    .Split('\n')
-            //    .Select((v, i) => i % 10 == 0 ? ":" : v)
-            //    .Aggregate((a, b) => a + b)
-            //    .Trim(':')
-            //    .Split(':')
-            //    .Select(x => x.ToCharArray())
-            //    .ToArray()[1]);
-
-            int answer = sudoku
+            int answer = sudokus
                 .Replace("\r", "")
                 .Split('\n')
                 .Select((v, i) => i % 10 == 0 ? ":" : v)
@@ -74,7 +64,7 @@ namespace Euler.Problems
             Backtrack(blocks, possibilities);
         }
 
-        public static bool Backtrack(char[,] blocks, bool[, ,] possibilities, int x = 0, int y = 0, int lastval = 0)
+        public static bool Backtrack(char[,] blocks, bool[, ,] possibilities, int x = 0, int y = 0)
         {
             if (x == 8 && y == 8)
                 return true;
@@ -94,6 +84,7 @@ namespace Euler.Problems
             {
                 if (possibilities[x, y, val])
                 {
+                    bool[, ,] clone = possibilities.Clone() as bool[, ,];
                     SetBlock(blocks, possibilities, x, y, val);
                     ty = y;
                     tx = x;
@@ -104,10 +95,13 @@ namespace Euler.Problems
                             return true;
                     }
 
-                    if (Backtrack(blocks, possibilities, tx, ty, val))
+                    if (Backtrack(blocks, possibilities, tx, ty))
                         return true;
                     else
-                        ResetBlock(blocks, possibilities, x, y, val);
+                    {
+                        possibilities = clone;
+                        blocks[x, y] = '0';
+                    }
                 }
             }
 
@@ -119,70 +113,24 @@ namespace Euler.Problems
             return false;
         }
 
-        public static void ResetBlock(char[,] blocks, bool[, ,] possibilities, int x, int y, int val)
-        {
-            char cur = ValueChars[val];
-            blocks[x, y] = '0';
-            // Rows
-            for (var ix = 0; ix < 9; ix++)
-            {
-                if (!possibilities[ix, y, val])
-                    possibilities[ix, y, val] =
-                        SolveRow(blocks, ix, y, cur) &&
-                        SolveColumn(blocks, ix, y, cur) &&
-                        SolveCell(blocks, ix, y, cur);
-            }
-
-            // Columns
-            for (var iy = 0; iy < 9; iy++)
-            {
-                if (!possibilities[x, iy, val])
-                    possibilities[x, iy, val] =
-                        SolveRow(blocks, x, iy, cur) &&
-                        SolveColumn(blocks, x, iy, cur) &&
-                        SolveCell(blocks, x, iy, cur);
-            }
-
-            // Cell
-            var startx = x - (x % 3);
-            var starty = y - (y % 3);
-
-            for (var ix = startx; ix < startx + 3; ix++)
-            {
-                for (var iy = starty; iy < starty + 3; iy++)
-                {
-                    if (!possibilities[ix, iy, val])
-                        possibilities[ix, iy, val] =
-                            SolveRow(blocks, ix, iy, cur) &&
-                            SolveColumn(blocks, ix, iy, cur) &&
-                            SolveCell(blocks, ix, iy, cur);
-                }
-            }
-        }
-
-        public static void SetBlock(char[,] blocks, bool[, ,] possibilities, int x, int y, char val)
-        {
-            SetBlock(blocks, possibilities, x, y, Array.IndexOf<char>(ValueChars, val));
-        }
-
         public static void SetBlock(char[,] blocks, bool[, ,] possibilities, int x, int y, int val)
         {
             blocks[x, y] = ValueChars[val];
 
             // Rows
-            for (var ix = 0; ix < 9; ix++)
+            for (int ix = 0; ix < 9; ix++)
                 possibilities[ix, y, val] = false;
 
             // Columns
-            for (var iy = 0; iy < 9; iy++)
+            for (int iy = 0; iy < 9; iy++)
                 possibilities[x, iy, val] = false;
 
             // Cell
-            var startx = x - (x % 3);
-            var starty = y - (y % 3);
-            for (var ix = startx; ix < startx + 3; ix++)
+            int startx = x - (x % 3);
+            int starty = y - (y % 3);
+            for (int ix = startx; ix < startx + 3; ix++)
             {
-                for (var iy = starty; iy < starty + 3; iy++)
+                for (int iy = starty; iy < starty + 3; iy++)
                     possibilities[ix, iy, val] = false;
             }
         }
@@ -213,7 +161,7 @@ namespace Euler.Problems
                         }
                     }
                     if (count == 1)
-                        yield return new Spot { X = x, Y = y, V = ValueChars[spot] };
+                        yield return new Spot { X = x, Y = y, V = spot };
                 }
             }
         }
@@ -223,7 +171,7 @@ namespace Euler.Problems
         {
             public int X;
             public int Y;
-            public char V;
+            public int V;
         }
 
         private static char[,] GenerateBlocks(char[] sudoku)
@@ -257,7 +205,7 @@ namespace Euler.Problems
 
         private static bool SolveRow(char[,] blocks, int x, int y, char val)
         {
-            for (var ix = 0; ix < 9; ix++)
+            for (int ix = 0; ix < 9; ix++)
             {
                 if (x == ix) continue;
                 if (blocks[ix, y] == val) return false;
@@ -267,7 +215,7 @@ namespace Euler.Problems
 
         private static bool SolveColumn(char[,] blocks, int x, int y, char val)
         {
-            for (var iy = 0; iy < 9; iy++)
+            for (int iy = 0; iy < 9; iy++)
             {
                 if (y == iy) continue;
                 if (blocks[x, iy] == val) return false;
@@ -277,12 +225,12 @@ namespace Euler.Problems
 
         private static bool SolveCell(char[,] blocks, int x, int y, char val)
         {
-            var startx = x - (x % 3);
-            var starty = y - (y % 3);
+            int startx = x - (x % 3);
+            int starty = y - (y % 3);
 
-            for (var ix = startx; ix < startx + 3; ix++)
+            for (int ix = startx; ix < startx + 3; ix++)
             {
-                for (var iy = starty; iy < starty + 3; iy++)
+                for (int iy = starty; iy < starty + 3; iy++)
                 {
                     if (y == iy && x == ix) continue;
                     if (blocks[ix, iy] == val) return false;
