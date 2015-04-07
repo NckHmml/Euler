@@ -56,6 +56,7 @@
     <Compile Include="Problems\Euler04.cs" />
     <Compile Include="Problems\Euler52.cs" />
     <Compile Include="Problems\Euler67.cs" />
+    <Compile Include="Problems\Euler79.cs" />
     <Compile Include="Problems\Euler96.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,7 +67,9 @@
   <ItemGroup>
     <Content Include="p018.txt" />
     <Content Include="p022_names.txt" />
+    <Content Include="p059_cipher.txt" />
     <Content Include="p067.txt" />
+    <Content Include="p079_keylog.txt" />
     <Content Include="p096.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

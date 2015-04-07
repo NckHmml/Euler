@@ -11,17 +11,9 @@ namespace Euler.Problems
     {
         public static string Run()
         {
-            string triangle;
-            using (FileStream file = File.OpenRead("p067.txt"))
-            {
-                byte[] charbuffer = new byte[file.Length];
-                file.Read(charbuffer, 0, (int)file.Length);
-                triangle = Encoding.ASCII.GetString(charbuffer);
-            }
+            string[] triangle = File.ReadAllLines("p067.txt");
 
             int[][] buffer = triangle
-                .Replace("\r", "")
-                .Split('\n')
                 .Select(x => x.Split(' ')
                     .Select(v => int.Parse(v))
                     .ToArray())
