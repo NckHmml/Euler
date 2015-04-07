@@ -21,6 +21,7 @@ namespace Euler
             problems.Add(06, () => Euler06.Run());
             problems.Add(14, () => Euler14.Run());
             problems.Add(15, () => Euler15.Run());
+            problems.Add(16, () => Euler16.Run());
             problems.Add(18, () => Euler18.Run());
             problems.Add(19, () => Euler19.Run());
             problems.Add(22, () => Euler22.Run());

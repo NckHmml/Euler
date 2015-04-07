@@ -13,7 +13,7 @@ namespace Euler.Problems
         {
             string[] passcodes = File.ReadAllLines("p079_keylog.txt");
             List<List<byte>> buffer = passcodes
-                .Select(x => x.ToArray()
+                .Select(x => x
                     .Select(y => byte.Parse(y.ToString()))
                     .ToList())
                 .ToList();

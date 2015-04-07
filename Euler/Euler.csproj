@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,6 +51,7 @@
     <Compile Include="Problems\Euler06.cs" />
     <Compile Include="Problems\Euler14.cs" />
     <Compile Include="Problems\Euler15.cs" />
+    <Compile Include="Problems\Euler16.cs" />
     <Compile Include="Problems\Euler18.cs" />
     <Compile Include="Problems\Euler19.cs" />
     <Compile Include="Problems\Euler22.cs" />
