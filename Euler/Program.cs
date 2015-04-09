@@ -19,12 +19,17 @@ namespace Euler
             problems.Add(04, () => Euler04.Run());
             problems.Add(05, () => Euler05.Run());
             problems.Add(06, () => Euler06.Run());
+            problems.Add(08, () => Euler08.Run());
+            problems.Add(09, () => Euler09.Run());
             problems.Add(14, () => Euler14.Run());
             problems.Add(15, () => Euler15.Run());
             problems.Add(16, () => Euler16.Run());
             problems.Add(18, () => Euler18.Run());
             problems.Add(19, () => Euler19.Run());
+            problems.Add(20, () => Euler20.Run());
             problems.Add(22, () => Euler22.Run());
+            problems.Add(25, () => Euler25.Run());
+            problems.Add(48, () => Euler48.Run());
             problems.Add(52, () => Euler52.Run());
             problems.Add(67, () => Euler67.Run());
             problems.Add(79, () => Euler79.Run());
