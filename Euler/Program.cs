@@ -31,12 +31,14 @@ namespace Euler
             problems.Add(22, () => Euler22.Run());
             problems.Add(25, () => Euler25.Run());
             problems.Add(26, () => Euler26.Run());
+            problems.Add(47, () => Euler47.Run());
             problems.Add(48, () => Euler48.Run());
             problems.Add(52, () => Euler52.Run());
             problems.Add(59, () => Euler59.Run());
             problems.Add(67, () => Euler67.Run());
             problems.Add(79, () => Euler79.Run());
             problems.Add(96, () => Euler96.Run());
+            problems.Add(97, () => Euler97.Run());
 
             bool running;
             int result;

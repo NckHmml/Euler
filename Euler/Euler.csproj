@@ -49,6 +49,7 @@
     <Compile Include="Problems\Euler03.cs" />
     <Compile Include="Problems\Euler05.cs" />
     <Compile Include="Problems\Euler26.cs" />
+    <Compile Include="Problems\Euler47.cs" />
     <Compile Include="Problems\Euler59.cs" />
     <Compile Include="Problems\Euler06.cs" />
     <Compile Include="Problems\Euler08.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Problems\Euler67.cs" />
     <Compile Include="Problems\Euler79.cs" />
     <Compile Include="Problems\Euler96.cs" />
+    <Compile Include="Problems\Euler97.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
