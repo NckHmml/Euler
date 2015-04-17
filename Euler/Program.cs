@@ -31,6 +31,8 @@ namespace Euler
             problems.Add(22, () => Euler22.Run());
             problems.Add(25, () => Euler25.Run());
             problems.Add(26, () => Euler26.Run());
+            problems.Add(42, () => Euler42.Run());
+            problems.Add(44, () => Euler44.Run());
             problems.Add(45, () => Euler45.Run());
             problems.Add(48, () => Euler48.Run());
             problems.Add(52, () => Euler52.Run());
@@ -39,6 +41,7 @@ namespace Euler
             problems.Add(79, () => Euler79.Run());
             problems.Add(96, () => Euler96.Run());
             problems.Add(97, () => Euler97.Run());
+            problems.Add(99, () => Euler99.Run());
 
             bool running;
             int result;

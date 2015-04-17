@@ -49,6 +49,8 @@
     <Compile Include="Problems\Euler03.cs" />
     <Compile Include="Problems\Euler05.cs" />
     <Compile Include="Problems\Euler26.cs" />
+    <Compile Include="Problems\Euler42.cs" />
+    <Compile Include="Problems\Euler44.cs" />
     <Compile Include="Problems\Euler45.cs" />
     <Compile Include="Problems\Euler59.cs" />
     <Compile Include="Problems\Euler06.cs" />
@@ -70,6 +72,7 @@
     <Compile Include="Problems\Euler79.cs" />
     <Compile Include="Problems\Euler96.cs" />
     <Compile Include="Problems\Euler97.cs" />
+    <Compile Include="Problems\Euler99.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -79,10 +82,12 @@
   <ItemGroup>
     <Content Include="p018.txt" />
     <Content Include="p022_names.txt" />
+    <Content Include="p042_words.txt" />
     <Content Include="p059_cipher.txt" />
     <Content Include="p067.txt" />
     <Content Include="p079_keylog.txt" />
     <Content Include="p096.txt" />
+    <Content Include="p099_base_exp.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

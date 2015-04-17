@@ -28,7 +28,7 @@ namespace Euler.Problems
 
         public static double CalcInvTri(double n)
         {
-            return (1 / 2d) * (-1 + Math.Sqrt(8 * n + 1));
+            return (-1 + Math.Sqrt(8 * n + 1)) / 2d;
         }
 
         public static double CalcPenta(double n)
@@ -38,7 +38,7 @@ namespace Euler.Problems
 
         public static double CalcInvPenta(double n)
         {
-            return (1 / 6d) * (1 + Math.Sqrt(24 * n - 1));
+            return (1 + Math.Sqrt(24 * n - 1)) / 6d;
         }
 
         public static double CalcHexa(double n)
@@ -48,7 +48,7 @@ namespace Euler.Problems
 
         public static double CalcInvHexa(double n)
         {
-            return (1 / 4d) * (1 + Math.Sqrt(8 * n + 1));
+            return (1 + Math.Sqrt(8 * n + 1)) / 4d;
         }
     }
 }
