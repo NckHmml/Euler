@@ -13,14 +13,23 @@ namespace Euler.Problems
             int max = 0;
             for (int x = 1000; x > 0; x--)
                 for (int y = 1000; y > 0; y--)
-                    if (x * y > max && IsPalindrome((x * y).ToString()))
+                    if (x * y > max && IsPalindrome(x * y))
                         max = x * y;
             return max.ToString();
         }
 
-        private static bool IsPalindrome(string sTest)
+        private static bool IsPalindrome(int n)
         {
-            return sTest.SequenceEqual(sTest.Reverse());
+            int num, rem, sum = 0, temp;
+            num = n;
+            temp = num;
+            while (Convert.ToBoolean(num))
+            {
+                rem = num % 10;
+                num = num / 10;
+                sum = sum * 10 + rem;
+            }
+            return temp == sum;
         }
     }
 }
