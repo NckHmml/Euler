@@ -75,6 +75,7 @@
     <Compile Include="Problems\Euler052.cs" />
     <Compile Include="Problems\Euler067.cs" />
     <Compile Include="Problems\Euler079.cs" />
+    <Compile Include="Problems\Euler089.cs" />
     <Compile Include="Problems\Euler096.cs" />
     <Compile Include="Problems\Euler097.cs" />
     <Compile Include="Problems\Euler099.cs" />
@@ -91,6 +92,7 @@
     <Content Include="p059_cipher.txt" />
     <Content Include="p067.txt" />
     <Content Include="p079_keylog.txt" />
+    <Content Include="p089_roman.txt" />
     <Content Include="p096.txt" />
     <Content Include="p099_base_exp.txt" />
   </ItemGroup>
