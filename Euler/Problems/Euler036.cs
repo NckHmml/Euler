@@ -12,51 +12,54 @@ namespace Euler.Problems
 
         public static string Run()
         {
-            double result = GenerateBinaryPalindromes()
-                .Where(x => IsPalindrome(x))
-                .Sum();
-            return (++result).ToString();
+            return (CountBinaryPalindromes() + 1).ToString();
         }
 
-        private static bool IsPalindrome(long n)
+        private static bool IsPalindrome(int n)
         {
-            long num, rem, sum = 0, temp;
-            num = n;
-            temp = num;
+            int 
+                num = n, 
+                rem, 
+                sum = 0;
             while (Convert.ToBoolean(num))
             {
                 rem = num % 10;
                 num = num / 10; 
                 sum = sum * 10 + rem; 
             }
-            return temp == sum;
+            return n == sum;
         }
 
-        public static IEnumerable<long> GenerateBinaryPalindromes()
+        public static int CountBinaryPalindromes()
         {
-            long 
+            int 
                 temp,
                 cur = 0,
-                i = 1;
+                i = 1,
+                sum = 0;
             while (cur < max)
             {
                 string bin = Convert.ToString(i, 2);
 
-                cur = Convert.ToInt64(bin + Reverse(bin), 2);
+                cur = Convert.ToInt32(bin + Reverse(bin), 2);
                 if (cur >= max) break;
-                yield return cur;
+                if (IsPalindrome(cur)) 
+                    sum += cur;
 
-                temp = Convert.ToInt64(bin + "0" + Reverse(bin), 2);
+                temp = Convert.ToInt32(bin + "0" + Reverse(bin), 2);
                 if (temp < max)
                 {
-                    yield return temp;
+                    if (IsPalindrome(temp))
+                        sum += temp;
 
-                    temp = Convert.ToInt64(bin + "1" + Reverse(bin), 2);
+                    temp = Convert.ToInt32(bin + "1" + Reverse(bin), 2);
                     if (temp < max)
-                        yield return temp;
+                        if (IsPalindrome(temp))
+                            sum += temp;
                 }
                 i++;
             }
+            return sum;
         }
 
         private static string Reverse(string s)

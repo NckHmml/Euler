@@ -18,26 +18,10 @@ namespace Euler.Problems
 
             for (long b = 1; b < boundary; b++)
             {
-                if (GetGCD(a, b) == b && isPrime(b))
+                if (a % b == 0 && isPrime(b))
                     max = b;
             }
             return max.ToString();
-        }
-
-        private static long GetGCD(long a, long b)
-        {
-            while (a != 0 && b != 0)
-            {
-                if (a > b)
-                    a %= b;
-                else
-                    b %= a;
-            }
-
-            if (a == 0)
-                return b;
-            else
-                return a;
         }
 
         private static bool isPrime(long number)
