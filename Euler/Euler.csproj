@@ -48,6 +48,7 @@
     <Compile Include="Problems\Euler002.cs" />
     <Compile Include="Problems\Euler003.cs" />
     <Compile Include="Problems\Euler005.cs" />
+    <Compile Include="Problems\Euler145.cs" />
     <Compile Include="Problems\Euler026.cs" />
     <Compile Include="Problems\Euler028.cs" />
     <Compile Include="Problems\Euler029.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Problems\Euler096.cs" />
     <Compile Include="Problems\Euler097.cs" />
     <Compile Include="Problems\Euler099.cs" />
+    <Compile Include="Problems\Euler102.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -93,6 +95,7 @@
     <Content Include="p079_keylog.txt" />
     <Content Include="p096.txt" />
     <Content Include="p099_base_exp.txt" />
+    <Content Include="p102_triangles.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
